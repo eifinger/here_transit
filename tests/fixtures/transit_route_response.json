@@ -1,0 +1,589 @@
+{
+    "routes": [
+        {
+            "id": "C0",
+            "sections": [
+                {
+                    "id": "C0-S0",
+                    "type": "pedestrian",
+                    "actions": [
+                        {
+                            "action": "depart",
+                            "duration": 1111,
+                            "instruction": "Head west on Wilhelm-Fay-Straße. Go for 1.1 km.",
+                            "length": 1099,
+                            "offset": 0
+                        },
+                        {
+                            "action": "roundaboutExit",
+                            "duration": 73,
+                            "instruction": "Walk right around the roundabout and turn at the 1st street Frankfurter Straße. Go for 63 m.",
+                            "length": 63,
+                            "offset": 40,
+                            "exit": 1,
+                            "direction": "right"
+                        },
+                        {
+                            "action": "arrive",
+                            "duration": 0,
+                            "instruction": "Arrive at Frankfurter Straße. Your destination is on the left.",
+                            "length": 0,
+                            "offset": 47
+                        }
+                    ],
+                    "travelSummary": {
+                        "duration": 1140,
+                        "length": 1162
+                    },
+                    "departure": {
+                        "time": "2022-07-19T15:39:00+02:00",
+                        "place": {
+                            "type": "place",
+                            "location": {
+                                "lat": 50.127787,
+                                "lng": 8.582082
+                            }
+                        }
+                    },
+                    "arrival": {
+                        "time": "2022-07-19T15:58:00+02:00",
+                        "place": {
+                            "name": "Eschborn Alfred-Herrhausen-Allee",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.135176,
+                                "lng": 8.572745
+                            },
+                            "id": "110439568"
+                        }
+                    },
+                    "polyline": "BGwhxz_Cgv5rQwDrQ8BvHkNr2BsE7LkI7V0FrO4I7QgF3IoGzKkSjXsTzU0FzFkXnV0tB7pBkN3N0FzF4DjD0KrJwW3S0UrJwWnG4cjI0FjDkDvC8BnB0F_EsErEkDrEkIrJ8G_J4IrOsJ_O8VzjB8Q7asJnQwbztB8G7L0FrJsE7GkNvW8BwC4D8BsEnB8BjDgFkIkD0FqHwL",
+                    "transport": {
+                        "mode": "pedestrian"
+                    }
+                },
+                {
+                    "id": "C0-S1",
+                    "type": "transit",
+                    "travelSummary": {
+                        "duration": 2040,
+                        "length": 15073
+                    },
+                    "departure": {
+                        "time": "2022-07-19T15:58:00+02:00",
+                        "place": {
+                            "name": "Eschborn Alfred-Herrhausen-Allee",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.135176,
+                                "lng": 8.572745
+                            },
+                            "id": "110439568"
+                        }
+                    },
+                    "arrival": {
+                        "time": "2022-07-19T16:32:00+02:00",
+                        "place": {
+                            "name": "Hofheim am Taunus Bahnhof",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.084834,
+                                "lng": 8.445818
+                            },
+                            "id": "110345290",
+                            "platform": "1"
+                        }
+                    },
+                    "polyline": "BHgrio8dw0swjFn8EnxHwM_jDnf_qC39CgZ3_Q_4ZjrfvwpCrJvWv-B_gHvM3hGg4Dv9nBgF31BvtH3rBnnHwM_5gBw4JnrK_Yv0G3oF_gH30OvwD_1E32Dn4B_2LoG3vEvlB3vEvpEnnHvjMnkkBvwuCn6oB3x9Cn9L3vdnpV_u3BnsqBn33Dnj2B3uzEnf3mQo8E_iV_qCnsRAnqDo4Bn1Fo1Fn5I4k0B3z5B4_QniWg3L3xSorK38U46G34RonH35YwpE_9KgrC_8Dw3C_xB42D4SoxCw3Cw-BwtH_xB4zH3vEw0G3hGg9DnuGAvtH_1Ev7F_yI3hGv8MvwD_8DnqDnf_jDgZv0Gw7Fn8EoxCnpVoiW3kC4oFwM42DgyB42D_xBw3C41B80DouB8lD4wLnvN3vEvqLoxC_nG4zH3zHgvFnf4vEv0G42D_jD4kC3rBwwDAojEg9DwiFg-Ko4B4-JwMg6H_qCorKnyJ40O_zPwxjB_vMwoWnhoBw2tB3mQozQ_nGoxCnjE_qC_jD_nGv0GvrS39CvpE_uF_xB_gHgrCv-BvM_jD_jD3oFnkLnyJvzY_iVnn5B_lrI367WnyJ3nXvjMn7WnjEnrK39C3-J39C3jUv-B3oF39CnjE32D3kC3nXvM_3rB_rJ3pM_nG_zPv1NnngBnrjB_zP_wT_uFnyJvmIvvV4rB39C_Y_8DvlBnfnxC4rBvlB3rBnoOvpd7yEjwGrkPztVv9T_mYn6Pv-antE7lIwM7G_sL_pUgoG36fo5In8d4gY3jmCkvE72R8uGz0Z_gH_rJv8M3iNrpPv8MrrYnwUovNnhhCo4Bn3Tof39C_oNv8M3tPnyJw4J_ptBwwDn5hBg6Hv1mBo4B_qCgkDvMouGgzI4rBwM49C3vEwM77H",
+                    "transport": {
+                        "mode": "bus",
+                        "name": "810",
+                        "category": "Bus Service",
+                        "headsign": "Hofheim am Taunus Bahnhof",
+                        "shortName": "810"
+                    },
+                    "intermediateStops": [
+                        {
+                            "departure": {
+                                "time": "2022-07-19T15:59:00+02:00",
+                                "place": {
+                                    "name": "Eschborn Frankfurter Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.132278,
+                                        "lng": 8.567036
+                                    },
+                                    "id": "110439586"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:00:00+02:00",
+                                "place": {
+                                    "name": "Eschborn Sossenheimer Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.132304,
+                                        "lng": 8.564295
+                                    },
+                                    "id": "110439593"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:11:00+02:00",
+                                "place": {
+                                    "name": "Sulzbach (Taunus) Mtz/Busbahnhof",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.11898,
+                                        "lng": 8.525139
+                                    },
+                                    "id": "110439894"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:21:00+02:00",
+                                "place": {
+                                    "name": "Kriftel Friedhof",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.087621,
+                                        "lng": 8.474837
+                                    },
+                                    "id": "110438583"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:22:00+02:00",
+                                "place": {
+                                    "name": "Kriftel Bürgerhaus",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.084806,
+                                        "lng": 8.47069
+                                    },
+                                    "id": "110438601"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:24:00+02:00",
+                                "place": {
+                                    "name": "Kriftel J.-Wittwer-Seniorenzentrum",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.086456,
+                                        "lng": 8.46198
+                                    },
+                                    "id": "110438185"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:25:00+02:00",
+                                "place": {
+                                    "name": "Kriftel Königsberger Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.085003,
+                                        "lng": 8.458853
+                                    },
+                                    "id": "110438382"
+                                }
+                            }
+                        }
+                    ],
+                    "agency": {
+                        "id": "88881_1a90f58",
+                        "name": "DB Regio Bus Mitte"
+                    }
+                },
+                {
+                    "id": "C0-S2",
+                    "type": "transit",
+                    "travelSummary": {
+                        "duration": 1800,
+                        "length": 12111
+                    },
+                    "departure": {
+                        "time": "2022-07-19T16:45:00+02:00",
+                        "place": {
+                            "name": "Hofheim am Taunus Bahnhof",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.084752,
+                                "lng": 8.445554
+                            },
+                            "id": "110345292",
+                            "platform": "3"
+                        }
+                    },
+                    "arrival": {
+                        "time": "2022-07-19T17:15:00+02:00",
+                        "place": {
+                            "name": "Wiesbaden-Nordenstadt Stolberger Straße",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.060615,
+                                "lng": 8.344163
+                            },
+                            "id": "110812533"
+                        }
+                    },
+                    "polyline": "BH0_up7dk44ihFs5CjrLgvF3iNwtH_2L4SvwDnfv3Cv3CvlB_jDoG_uFojE3oFvlB3rBvtHgrC3wLnfv_I_qC_uFv7F_nGvwDv-BnzQvwD33K3oFrrJ3kH8BnLvgkB_ujBvmI32Dv6Xz7Ev6wBr_J_nf3qJ8B7G7iHrlC3zHvM_YnqDn0XvqkBzyGr9F75S79QnzVzzNvlV7qN32DvwD3wL3xS3kCn4B3c7BnoJ7Q_jDv1N_uF3iN3yZ_kjB3ra35xBv7FnuG34R3iN_1E3oFnjE36GnuG_hOrE7LwCT7hUv-zB3vE3lJvCnG3lOvgpBwyR3jUnjE_9jB8uBzkrB0PjvOvlB3oF4kCn1FoqDnufw7Fvz1E4kC_2L4hGv2U4rB3wL_jDv1_B4hGvsrCoGv3mDoxC_u3BwkToxCkrLjtF87lB7gSgrCvpE_1EvzYgFz4DoBrdofvlBw_6B32co8EwMguS4pRgvKg7J4wL_ue_pU_zP_xanxbnyJvjMvmhB4_pBnyJw4J3pMo5I_xao2MvyRw1NnyJoqD3wL3rBnkL_nG_rJnkL3hG_vMvwDnvNv3CvnoBonHv3C4-Jv_Iw1Nn_Zk4MjlJs3IzoG47N_oNjuC7oJ79GzoaouG_1E_5Hvwc32D3uW49C3SgxTn9Lv3C3zH3zH_6OvpE_wJvkTvtqBn3T36GgsJn99BwM3pMgrC_rJgtQvg0DgyB30OnGv_IgrC3lJgZjnIg6H7syCrhO_yNgKvRrlgB_jhB3gY3wkB",
+                    "transport": {
+                        "mode": "bus",
+                        "name": "262",
+                        "category": "Bus Service",
+                        "headsign": "Wiesbaden Platz der Deutschen Einheit",
+                        "shortName": "262"
+                    },
+                    "intermediateStops": [
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:47:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus Römerstraße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.082525,
+                                        "lng": 8.440494
+                                    },
+                                    "id": "110812102"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:48:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Marxheim Mainzer Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.079017,
+                                        "lng": 8.438159
+                                    },
+                                    "id": "110452004"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:49:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Marxheim Amselweg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.074895,
+                                        "lng": 8.437286
+                                    },
+                                    "id": "110452019"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:50:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Marxheim Klarastraße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.072554,
+                                        "lng": 8.434826
+                                    },
+                                    "id": "110451991"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:51:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Marxheim Birkenweg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.07047,
+                                        "lng": 8.433286
+                                    },
+                                    "id": "110451938"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:52:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Marxheim Bürgerhaus",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.068465,
+                                        "lng": 8.431341
+                                    },
+                                    "id": "110438650"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:54:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Diedenbergen Dachsweg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.062896,
+                                        "lng": 8.42325
+                                    },
+                                    "id": "110450713"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:55:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Diedenbergen Rathaus",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.061639,
+                                        "lng": 8.420109
+                                    },
+                                    "id": "110450722"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T16:57:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Diedenbergen Wachtelweg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.061657,
+                                        "lng": 8.41293
+                                    },
+                                    "id": "110451910"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:01:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Robert-Bosch-Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.064559,
+                                        "lng": 8.384738
+                                    },
+                                    "id": "110450749"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:02:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Max-Planck-Straße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.066334,
+                                        "lng": 8.382145
+                                    },
+                                    "id": "110451147"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:03:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Nassaustraße",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.070655,
+                                        "lng": 8.381475
+                                    },
+                                    "id": "110450928"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:07:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Feuerwache",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.063278,
+                                        "lng": 8.375453
+                                    },
+                                    "id": "110811527"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:08:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Am Wickerbach",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.06425,
+                                        "lng": 8.374002
+                                    },
+                                    "id": "110451154"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:09:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Herrngarten",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.063697,
+                                        "lng": 8.369791
+                                    },
+                                    "id": "110819274"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:10:00+02:00",
+                                "place": {
+                                    "name": "Hofheim am Taunus-Wallau Ländcheshalle",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.064107,
+                                        "lng": 8.367509
+                                    },
+                                    "id": "110819168"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:13:00+02:00",
+                                "place": {
+                                    "name": "Wiesbaden-Nordenstadt Lindenweg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.063774,
+                                        "lng": 8.352667
+                                    },
+                                    "id": "110501296"
+                                }
+                            }
+                        },
+                        {
+                            "departure": {
+                                "time": "2022-07-19T17:14:00+02:00",
+                                "place": {
+                                    "name": "Wiesbaden-Nordenstadt Wallauer Weg",
+                                    "type": "station",
+                                    "location": {
+                                        "lat": 50.063467,
+                                        "lng": 8.347755
+                                    },
+                                    "id": "110819275"
+                                }
+                            }
+                        }
+                    ],
+                    "agency": {
+                        "id": "88881_1a90f58",
+                        "name": "DB Regio Bus Mitte"
+                    }
+                },
+                {
+                    "id": "C0-S3",
+                    "type": "pedestrian",
+                    "actions": [
+                        {
+                            "action": "depart",
+                            "duration": 166,
+                            "instruction": "Head southwest on Hunsrückstraße. Go for 155 m.",
+                            "length": 155,
+                            "offset": 0
+                        },
+                        {
+                            "action": "turn",
+                            "duration": 91,
+                            "instruction": "Turn right onto Stolberger Straße. Go for 82 m.",
+                            "length": 82,
+                            "offset": 4,
+                            "direction": "right",
+                            "severity": "quite"
+                        },
+                        {
+                            "action": "turn",
+                            "duration": 476,
+                            "instruction": "Turn left onto Horchheimer Straße. Go for 466 m.",
+                            "length": 466,
+                            "offset": 9,
+                            "direction": "left",
+                            "severity": "quite"
+                        },
+                        {
+                            "action": "turn",
+                            "duration": 18,
+                            "instruction": "Turn left onto Hessenring. Go for 18 m.",
+                            "length": 18,
+                            "offset": 21,
+                            "direction": "left",
+                            "severity": "quite"
+                        },
+                        {
+                            "action": "arrive",
+                            "duration": 0,
+                            "instruction": "Arrive at Hessenring. Your destination is on the left.",
+                            "length": 0,
+                            "offset": 22
+                        }
+                    ],
+                    "travelSummary": {
+                        "duration": 720,
+                        "length": 721
+                    },
+                    "departure": {
+                        "time": "2022-07-19T17:15:00+02:00",
+                        "place": {
+                            "name": "Wiesbaden-Nordenstadt Stolberger Straße",
+                            "type": "station",
+                            "location": {
+                                "lat": 50.060615,
+                                "lng": 8.344163
+                            },
+                            "id": "110812533"
+                        }
+                    },
+                    "arrival": {
+                        "time": "2022-07-19T17:27:00+02:00",
+                        "place": {
+                            "type": "place",
+                            "location": {
+                                "lat": 50.060941,
+                                "lng": 8.336477
+                            }
+                        }
+                    },
+                    "polyline": "BG20uv_C4lp9P9nBn-B3DzFvC3DnQjX8GvHkDvC4DnBoGoBkX8L0F3cwCnLkN7iCnBzhCAnG8B3wBsEzZkD_OwCzP8GnkBwHjmB8GvlBhJ1G",
+                    "transport": {
+                        "mode": "pedestrian"
+                    }
+                }
+            ]
+        }
+    ]
+}

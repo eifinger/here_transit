@@ -1,0 +1,13 @@
+{
+    "notices": [
+        {
+            "title": "Route between origin and destination is not possible given current input parameters",
+            "code": "noRouteFound"
+        },
+        {
+            "title": "This notice is deprecated, see noRouteFound",
+            "code": "noRoutesFound"
+        }
+    ],
+    "routes": []
+}

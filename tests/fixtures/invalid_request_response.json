@@ -1,0 +1,8 @@
+{
+    "title": "Invalid input parameters",
+    "status": 400,
+    "code": "E602000",
+    "cause": "'origin': value is out of range",
+    "action": "Adjust input parameters",
+    "correlationId": "b688b6ac-adb7-470f-88bf-8898d2e4dc20"
+}
