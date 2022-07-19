@@ -1,6 +1,6 @@
 # here_transit
 
-Asynchronous Python client for the HERE Routing V8 API
+Asynchronous Python client for the HERE Transit V8 API
 
 [![GitHub Actions](https://github.com/eifinger/here_transit/workflows/CI/badge.svg)](https://github.com/eifinger/here_transit/actions?workflow=CI)
 [![PyPi](https://img.shields.io/pypi/v/here_transit.svg)](https://pypi.python.org/pypi/here_transit)

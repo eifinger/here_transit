@@ -35,9 +35,9 @@ class HERETransitApi:
         session: aiohttp.client.ClientSession | None = None,
         user_agent: str | None = None,
     ) -> None:
-        """Initialize connection with HERE Routing.
-        Class constructor for setting up an HERERoutingApi object to
-        communicate with the HERE Routing API.
+        """Initialize connection with HERE Transit.
+        Class constructor for setting up an HERETransitApi object to
+        communicate with the HERE Transit API.
         Args:
             api_key: A key generated specifically to authenticate API requests.
             request_timeout: Max timeout to wait for a response from the API.
@@ -61,10 +61,10 @@ class HERETransitApi:
         params: MutableMapping[str, str | List[str]],
         method: str = "GET",
     ) -> Any:
-        """Handle a request to the HERE Routing API.
-        Make a request against the HERE Routing API and handles the response.
+        """Handle a request to the HERE Transit API.
+        Make a request against the HERE Transit API and handles the response.
         Args:
-            uri: The request URI on the HERE Routing API to call.
+            uri: The request URI on the HERE Transit API to call.
             method: HTTP method to use for the request; e.g., GET, POST.
             data: RAW HTTP request data to send with the request.
             json_data: Dictionary of data to send as JSON with the request.
@@ -74,9 +74,9 @@ class HERETransitApi:
             the method will return a decoded JSON response as a Python
             dictionary. In other cases, it will return the RAW text response.
         Raises:
-            HERERoutingConnectionError: An error occurred while communicating
+            HERETransitConnectionError: An error occurred while communicating
                 with the HERE Transit API (connection issues).
-            HERERoutingError: An error occurred while processing the
+            HERETransitError: An error occurred while processing the
                 response from the HERE Transit API (invalid data).
         """
         url = URL.build(scheme=SCHEME, host=API_HOST, path=API_VERSION) / uri
@@ -102,11 +102,11 @@ class HERETransitApi:
                 )
         except asyncio.TimeoutError as exception:
             raise HERETransitConnectionError(
-                "Timeout occurred while connecting to the HERE Routing API."
+                "Timeout occurred while connecting to the HERE Transit API."
             ) from exception
         except (aiohttp.ClientError, socket.gaierror) as exception:
             raise HERETransitConnectionError(
-                "Error occurred while communicating with the HERE Routing API."
+                "Error occurred while communicating with the HERE Transit API."
             ) from exception
 
         content_type = response.headers.get("Content-Type", "")
@@ -154,15 +154,15 @@ class HERETransitApi:
             changes: Maximum number of changes/transfers. None means unlimited.
             included_modes: Included TransitModes. None means all.
             excluded_modes: Excluded TransitModes. None means none.
-            return_values: HERE Routing API return values to request.
+            return_values: HERE Transit API return values to request.
             departure_time: Departure time.
             arrival_time: Arrival time.
         Returns:
             The response from the API.
         Raises:
-            HERERoutingConnectionError: An error occurred while communicating
+            HERETransitConnectionError: An error occurred while communicating
                 with the HERE Transit API (connection issues).
-            HERERoutingError: An error occurred while processing the
+            HERETransitError: An error occurred while processing the
                 response from the HERE Transit API (invalid data).
         """
         if included_modes is not None and excluded_modes is not None:

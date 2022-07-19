@@ -1,4 +1,4 @@
-"""HERE Routing API models."""
+"""HERE Transit API models."""
 
 from dataclasses import dataclass
 from enum import Enum

@@ -15,7 +15,8 @@ keywords = [
     "asyncio",
     "here",
     "here-api",
-    "routing"
+    "routing",
+    "transit"
 ]
 classifiers = [
     "Intended Audience :: Developers",
