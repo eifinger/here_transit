@@ -83,7 +83,7 @@ repos:
         name: ✅ Check code for common misspellings
         language: system
         types: [text]
-        exclude: ^(poetry\.lock$|^docs/)
+        exclude: ^(poetry\.lock$|^docs/|^tests/fixtures/)
         entry: poetry run codespell --ignore-words=.codespell
       - id: debug-statements
         name: 🪵  Debug Statements and imports (Python)
