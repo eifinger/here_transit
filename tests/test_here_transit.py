@@ -90,20 +90,37 @@ async def test_invalid_request(aresponses):
 
 
 @pytest.mark.asyncio
-async def test_no_route_found(aresponses):
-    """Test that a no route found response throws HERETransitError."""
+@pytest.mark.parametrize(
+    "json_fixture,expected_exception,expected_exception_message",
+    [
+        (
+            "no_route_found_response.json",
+            HERETransitError,
+            "noRouteFound",
+        ),
+        (
+            "no_transit_route_found_response.json",
+            HERETransitNoTransitRouteFoundError,
+            "Transit routing between origin and destination is not possible",
+        ),
+    ],
+)
+async def test_exceptions(
+    aresponses, json_fixture, expected_exception, expected_exception_message
+):
+    """Test correct HERETransitError are thrown."""
     aresponses.add(
         API_HOST,
         f"{API_VERSION}/{ROUTES_PATH}",
         "GET",
         aresponses.Response(
-            text=load_json_fixture("no_route_found_response.json"),
+            text=load_json_fixture(json_fixture),
             status=200,
             content_type="application/json",
         ),
     )
     async with aiohttp.ClientSession() as session:
-        with pytest.raises(HERETransitError) as error:
+        with pytest.raises(expected_exception) as error:
             here_api = HERETransitApi(api_key="key", session=session)
             await here_api.route(
                 origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
@@ -112,35 +129,7 @@ async def test_no_route_found(aresponses):
                 ),
                 changes=0,
             )
-        assert "noRouteFound" in str(error.value)
-
-
-@pytest.mark.asyncio
-async def test_no_transit_route_found(aresponses):
-    """Test that a noTransitRouteFound response throws HERETransitNoTransitRouteFoundError."""
-    aresponses.add(
-        API_HOST,
-        f"{API_VERSION}/{ROUTES_PATH}",
-        "GET",
-        aresponses.Response(
-            text=load_json_fixture("no_transit_route_found_response.json"),
-            status=200,
-            content_type="application/json",
-        ),
-    )
-    async with aiohttp.ClientSession() as session:
-        with pytest.raises(HERETransitNoTransitRouteFoundError) as error:
-            here_api = HERETransitApi(api_key="key", session=session)
-            await here_api.route(
-                origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
-                destination=Place(
-                    latitude=50.060940891421765, longitude=8.336477279663088
-                ),
-                changes=0,
-            )
-        assert "Transit routing between origin and destination is not possible" in str(
-            error.value
-        )
+        assert expected_exception_message in str(error.value)
 
 
 def load_json_fixture(filename: str) -> str:
