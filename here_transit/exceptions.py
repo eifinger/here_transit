@@ -13,5 +13,9 @@ class HERETransitUnauthorizedError(HERETransitError):
     """HERE transit unauthorized exception."""
 
 
+class HERETransitNoRouteFoundError(HERETransitError):
+    """HERE transit noRouteFound exception."""
+
+
 class HERETransitNoTransitRouteFoundError(HERETransitError):
     """HERE transit noTransitRouteFound exception."""
