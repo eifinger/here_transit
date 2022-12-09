@@ -15,6 +15,7 @@ from yarl import URL
 from .exceptions import (
     HERETransitConnectionError,
     HERETransitError,
+    HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
     HERETransitUnauthorizedError,
 )
@@ -223,5 +224,7 @@ def raise_error_from_notices(notices: List[Dict[str, str]]) -> None:
     for notice in notices:
         if notice["code"] == "noTransitRouteFound":
             raise HERETransitNoTransitRouteFoundError(notice["title"])
+        if notice["code"] == "noRouteFound":
+            raise HERETransitNoRouteFoundError(notice["title"])
 
     raise HERETransitError(",".join(notice["title"] for notice in notices))

@@ -7,6 +7,7 @@ import pytest
 
 from here_transit.exceptions import (
     HERETransitError,
+    HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
     HERETransitUnauthorizedError,
 )
@@ -95,8 +96,11 @@ async def test_invalid_request(aresponses):
     [
         (
             "no_route_found_response.json",
-            HERETransitError,
-            "noRouteFound",
+            HERETransitNoRouteFoundError,
+            (
+                "Route between origin and destination "
+                "is not possible given current input parameters"
+            ),
         ),
         (
             "no_transit_route_found_response.json",
