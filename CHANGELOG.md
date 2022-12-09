@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2022-12-09)
+### Feature
+* Add dedicated departureArrivalTooClose exception ([`86c631d`](https://github.com/eifinger/here_transit/commit/86c631d458e5af6ed7e0373e54fd7a0901d1d2b6))
+* Add dedicated noRouteFound exception ([`7aa0fc3`](https://github.com/eifinger/here_transit/commit/7aa0fc314d41a8198f1611ec84de4a2e6be8f71c))
+* Add dedicated NoTransitRouteFound exception ([`40d3bdc`](https://github.com/eifinger/here_transit/commit/40d3bdc89adbeebed5c2e730241cebd669f6062e))
+
 ## v1.0.0 (2022-10-21)
 ### Breaking
 * Remove Python3.8 as supported version ([`a5966b6`](https://github.com/eifinger/here_transit/commit/a5966b6451166b47d75740c111bf2b835568c67d))
