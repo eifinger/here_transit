@@ -95,7 +95,7 @@ async def test_invalid_request(aresponses):
     "json_fixture,expected_exception,expected_exception_message",
     [
         (
-            "no_route_found_response.json",
+            "noRouteFound_response.json",
             HERETransitNoRouteFoundError,
             (
                 "Route between origin and destination "
@@ -103,7 +103,7 @@ async def test_invalid_request(aresponses):
             ),
         ),
         (
-            "no_transit_route_found_response.json",
+            "noTransitRouteFound_response.json",
             HERETransitNoTransitRouteFoundError,
             "Transit routing between origin and destination is not possible",
         ),
