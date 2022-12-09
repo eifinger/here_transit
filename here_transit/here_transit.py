@@ -14,6 +14,7 @@ from yarl import URL
 
 from .exceptions import (
     HERETransitConnectionError,
+    HERETransitDepartureArrivalTooCloseError,
     HERETransitError,
     HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
@@ -221,10 +222,13 @@ class HERETransitApi:
 
 def raise_error_from_notices(notices: List[Dict[str, str]]) -> None:
     """Raise the correct error for the contained notices."""
-    for notice in notices:
-        if notice["code"] == "noTransitRouteFound":
-            raise HERETransitNoTransitRouteFoundError(notice["title"])
-        if notice["code"] == "noRouteFound":
-            raise HERETransitNoRouteFoundError(notice["title"])
+    errors = {notice["code"]: notice["title"] for notice in notices}
 
-    raise HERETransitError(",".join(notice["title"] for notice in notices))
+    if (title := errors.get("departureArrivalTooClose")) is not None:
+        raise HERETransitDepartureArrivalTooCloseError(title)
+    if (title := errors.get("noTransitRouteFound")) is not None:
+        raise HERETransitNoTransitRouteFoundError(title)
+    if (title := errors.get("noRouteFound")) is not None:
+        raise HERETransitNoRouteFoundError(title)
+
+    raise HERETransitError(",".join(errors.values()))
