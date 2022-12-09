@@ -17,5 +17,9 @@ class HERETransitNoRouteFoundError(HERETransitError):
     """HERE transit noRouteFound exception."""
 
 
-class HERETransitNoTransitRouteFoundError(HERETransitError):
+class HERETransitNoTransitRouteFoundError(HERETransitNoRouteFoundError):
     """HERE transit noTransitRouteFound exception."""
+
+
+class HERETransitDepartureArrivalTooCloseError(HERETransitNoRouteFoundError):
+    """HERE transit departureArrivalTooClose exception."""

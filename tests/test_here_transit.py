@@ -6,6 +6,7 @@ import aiohttp
 import pytest
 
 from here_transit.exceptions import (
+    HERETransitDepartureArrivalTooCloseError,
     HERETransitError,
     HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
@@ -106,6 +107,11 @@ async def test_invalid_request(aresponses):
             "noTransitRouteFound_response.json",
             HERETransitNoTransitRouteFoundError,
             "Transit routing between origin and destination is not possible",
+        ),
+        (
+            "departureArrivalTooClose_response.json",
+            HERETransitDepartureArrivalTooCloseError,
+            "Departure and arrival locations are too close",
         ),
     ],
 )
