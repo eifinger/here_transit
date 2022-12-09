@@ -6,7 +6,7 @@ import json
 import socket
 from datetime import datetime
 from importlib import metadata
-from typing import Any, List, MutableMapping
+from typing import Any, Dict, List, MutableMapping
 
 import aiohttp
 import async_timeout
@@ -15,6 +15,7 @@ from yarl import URL
 from .exceptions import (
     HERETransitConnectionError,
     HERETransitError,
+    HERETransitNoTransitRouteFoundError,
     HERETransitUnauthorizedError,
 )
 from .model import Place, Return, TransitMode, UnitSystem
@@ -194,9 +195,7 @@ class HERETransitApi:
         response = await self.request(uri=ROUTES_PATH, params=params)
 
         if len(response["routes"]) < 1:
-            raise HERETransitError(
-                ",".join(notice["title"] for notice in response["notices"])
-            )
+            raise_error_from_notices(response["notices"])
         return response
 
     async def close(self) -> None:
@@ -217,3 +216,12 @@ class HERETransitApi:
             _exc_info: Exec type.
         """
         await self.close()
+
+
+def raise_error_from_notices(notices: List[Dict[str, str]]) -> None:
+    """Raise the correct error for the contained notices."""
+    for notice in notices:
+        if notice["code"] == "noTransitRouteFound":
+            raise HERETransitNoTransitRouteFoundError(notice["title"])
+
+    raise HERETransitError(",".join(notice["title"] for notice in notices))

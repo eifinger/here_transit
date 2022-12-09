@@ -1,0 +1,13 @@
+{
+    "notices": [
+        {
+            "title": "Transit routing between origin and destination is not possible given current input parameters (other types of routes are available).",
+            "code": "noTransitRouteFound"
+        },
+        {
+            "title": "This notice is deprecated, see noRouteFound",
+            "code": "noRoutesFound"
+        }
+    ],
+    "routes": []
+}

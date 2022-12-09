@@ -5,7 +5,11 @@ from datetime import datetime
 import aiohttp
 import pytest
 
-from here_transit.exceptions import HERETransitError, HERETransitUnauthorizedError
+from here_transit.exceptions import (
+    HERETransitError,
+    HERETransitNoTransitRouteFoundError,
+    HERETransitUnauthorizedError,
+)
 from here_transit.here_transit import API_HOST, API_VERSION, ROUTES_PATH, HERETransitApi
 from here_transit.model import Place, Return, TransitMode
 
@@ -109,6 +113,34 @@ async def test_no_route_found(aresponses):
                 changes=0,
             )
         assert "noRouteFound" in str(error.value)
+
+
+@pytest.mark.asyncio
+async def test_no_transit_route_found(aresponses):
+    """Test that a noTransitRouteFound response throws HERETransitNoTransitRouteFoundError."""
+    aresponses.add(
+        API_HOST,
+        f"{API_VERSION}/{ROUTES_PATH}",
+        "GET",
+        aresponses.Response(
+            text=load_json_fixture("no_transit_route_found_response.json"),
+            status=200,
+            content_type="application/json",
+        ),
+    )
+    async with aiohttp.ClientSession() as session:
+        with pytest.raises(HERETransitNoTransitRouteFoundError) as error:
+            here_api = HERETransitApi(api_key="key", session=session)
+            await here_api.route(
+                origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
+                destination=Place(
+                    latitude=50.060940891421765, longitude=8.336477279663088
+                ),
+                changes=0,
+            )
+        assert "Transit routing between origin and destination is not possible" in str(
+            error.value
+        )
 
 
 def load_json_fixture(filename: str) -> str:
