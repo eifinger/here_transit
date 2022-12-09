@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.1 (2022-12-09)
+### Fix
+* Publish Exceptions as top level ([`f37377b`](https://github.com/eifinger/here_transit/commit/f37377b9c7298d64dd0736c87c8025393edd23e6))
+
 ## v1.1.0 (2022-12-09)
 ### Feature
 * Add dedicated departureArrivalTooClose exception ([`86c631d`](https://github.com/eifinger/here_transit/commit/86c631d458e5af6ed7e0373e54fd7a0901d1d2b6))
