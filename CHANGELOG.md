@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2022-12-12)
+### Feature
+* Add HERETransitTooManyRequestsError ([`4d59ffb`](https://github.com/eifinger/here_transit/commit/4d59ffba449209d6569cfd1c6f3a4eccd5dc6ba2))
+
 ## v1.1.1 (2022-12-09)
 ### Fix
 * Publish Exceptions as top level ([`f37377b`](https://github.com/eifinger/here_transit/commit/f37377b9c7298d64dd0736c87c8025393edd23e6))
