@@ -18,6 +18,7 @@ from .exceptions import (
     HERETransitError,
     HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
+    HERETransitTooManyRequestsError,
     HERETransitUnauthorizedError,
 )
 from .model import Place, Return, TransitMode, UnitSystem
@@ -122,6 +123,10 @@ class HERETransitApi:
 
             if response.status == 401:
                 raise HERETransitUnauthorizedError(
+                    json.loads(decoded_contents)["error_description"]
+                )
+            if response.status == 429:
+                raise HERETransitTooManyRequestsError(
                     json.loads(decoded_contents)["error_description"]
                 )
 

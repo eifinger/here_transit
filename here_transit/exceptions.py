@@ -13,6 +13,10 @@ class HERETransitUnauthorizedError(HERETransitError):
     """HERE transit unauthorized exception."""
 
 
+class HERETransitTooManyRequestsError(HERETransitError):
+    """HERE transit error wrapping HTTP 429"""
+
+
 class HERETransitNoRouteFoundError(HERETransitError):
     """HERE transit noRouteFound exception."""
 
