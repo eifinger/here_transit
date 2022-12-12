@@ -1,18 +1,15 @@
 """Asynchronous Python client for the HERE Transit V8 API."""
 
-from .here_transit import (
-    HERETransitApi,
+from .exceptions import (
     HERETransitConnectionError,
     HERETransitDepartureArrivalTooCloseError,
     HERETransitError,
     HERETransitNoRouteFoundError,
     HERETransitNoTransitRouteFoundError,
+    HERETransitTooManyRequestsError,
     HERETransitUnauthorizedError,
-    Place,
-    Return,
-    TransitMode,
-    UnitSystem,
 )
+from .here_transit import HERETransitApi, Place, Return, TransitMode, UnitSystem
 
 __all__ = [
     "HERETransitApi",
@@ -22,6 +19,7 @@ __all__ = [
     "HERETransitNoRouteFoundError",
     "HERETransitNoTransitRouteFoundError",
     "HERETransitDepartureArrivalTooCloseError",
+    "HERETransitTooManyRequestsError",
     "Place",
     "Return",
     "TransitMode",
