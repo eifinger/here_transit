@@ -35,7 +35,7 @@ yarl = "^1.7.2"
 
 [tool.poetry.group.dev.dependencies]
 aresponses = "2.1.6"
-black = "^22.1.0"
+black = ">=22.1,<24.0"
 blacken-docs = "^1.12.1"
 coverage = {version = ">=6.3,<8.0", extras = ["toml"]}
 bandit = "^1.7.2"
