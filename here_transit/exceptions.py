@@ -14,7 +14,7 @@ class HERETransitUnauthorizedError(HERETransitError):
 
 
 class HERETransitTooManyRequestsError(HERETransitError):
-    """HERE transit error wrapping HTTP 429"""
+    """HERE transit error wrapping HTTP 429."""
 
 
 class HERETransitNoRouteFoundError(HERETransitError):

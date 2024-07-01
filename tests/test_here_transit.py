@@ -1,4 +1,5 @@
 """Tests for `here_transit.here_transit`."""
+
 import os
 from datetime import datetime
 
@@ -61,9 +62,7 @@ async def test_invalid_key(aresponses):
             here_api = HERETransitApi(api_key="invalid", session=session)
             await here_api.route(
                 origin=Place(latitude=50.12778680095556, longitude=8.582081794738771),
-                destination=Place(
-                    latitude=50.060940891421765, longitude=8.336477279663088
-                ),
+                destination=Place(latitude=50.060940891421765, longitude=8.336477279663088),
             )
 
 
@@ -85,9 +84,7 @@ async def test_invalid_request(aresponses):
             here_api = HERETransitApi(api_key="key", session=session)
             await here_api.route(
                 origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
-                destination=Place(
-                    latitude=50.060940891421765, longitude=8.336477279663088
-                ),
+                destination=Place(latitude=50.060940891421765, longitude=8.336477279663088),
             )
         assert "'origin': value is out of range" in str(error.value)
 
@@ -110,9 +107,7 @@ async def test_429_too_many_requests(aresponses):
             here_api = HERETransitApi(api_key="key", session=session)
             await here_api.route(
                 origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
-                destination=Place(
-                    latitude=50.060940891421765, longitude=8.336477279663088
-                ),
+                destination=Place(latitude=50.060940891421765, longitude=8.336477279663088),
             )
         assert "Rate limit for this service has been reached" in str(error.value)
 
@@ -124,10 +119,7 @@ async def test_429_too_many_requests(aresponses):
         (
             "noRouteFound_response.json",
             HERETransitNoRouteFoundError,
-            (
-                "Route between origin and destination "
-                "is not possible given current input parameters"
-            ),
+            ("Route between origin and destination " "is not possible given current input parameters"),
         ),
         (
             "noTransitRouteFound_response.json",
@@ -141,9 +133,7 @@ async def test_429_too_many_requests(aresponses):
         ),
     ],
 )
-async def test_exceptions(
-    aresponses, json_fixture, expected_exception, expected_exception_message
-):
+async def test_exceptions(aresponses, json_fixture, expected_exception, expected_exception_message):
     """Test correct HERETransitError are thrown."""
     aresponses.add(
         API_HOST,
@@ -160,9 +150,7 @@ async def test_exceptions(
             here_api = HERETransitApi(api_key="key", session=session)
             await here_api.route(
                 origin=Place(latitude=150.12778680095556, longitude=8.582081794738771),
-                destination=Place(
-                    latitude=50.060940891421765, longitude=8.336477279663088
-                ),
+                destination=Place(latitude=50.060940891421765, longitude=8.336477279663088),
                 changes=0,
             )
         assert expected_exception_message in str(error.value)
