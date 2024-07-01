@@ -30,6 +30,8 @@ API_HOST = "transit.router.hereapi.com"
 API_VERSION = "/v8"
 ROUTES_PATH = "routes"
 
+LIB_VERSION = metadata.version(__package__)
+
 
 class HERETransitApi:
     """Main class for handling connections with the HERE Transit API v8."""
@@ -60,8 +62,7 @@ class HERETransitApi:
         self.user_agent = user_agent
 
         if user_agent is None:
-            version = metadata.version(__package__)
-            self.user_agent = f"here_transit/{version}"
+            self.user_agent = f"here_transit/{LIB_VERSION}"
 
     async def request(
         self,
