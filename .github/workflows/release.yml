@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/here_routing/
+      url: https://pypi.org/p/here_transit/
     permissions:
       id-token: write
     steps:
@@ -24,8 +24,6 @@ jobs:
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
       - uses: eifinger/setup-rye@v3
-        with:
-          enable-cache: true
       - name: Build
         run: |
           rye build
