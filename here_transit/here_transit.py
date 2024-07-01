@@ -1,4 +1,5 @@
 """A module to query the HERE Transit API v8."""
+
 from __future__ import annotations
 
 import asyncio
@@ -6,7 +7,8 @@ import json
 import socket
 from datetime import datetime
 from importlib import metadata
-from typing import Any, Dict, List, MutableMapping
+from typing import Any
+from collections.abc import MutableMapping
 
 import aiohttp
 import async_timeout
@@ -40,6 +42,7 @@ class HERETransitApi:
         user_agent: str | None = None,
     ) -> None:
         """Initialize connection with HERE Transit.
+
         Class constructor for setting up an HERETransitApi object to
         communicate with the HERE Transit API.
         Args:
@@ -47,6 +50,7 @@ class HERETransitApi:
             request_timeout: Max timeout to wait for a response from the API.
             session: Optional, shared, aiohttp client session.
             user_agent: Defaults to here_transit/<version>.
+
         """
         self._session = session
         self._api_key = api_key
@@ -62,10 +66,11 @@ class HERETransitApi:
     async def request(
         self,
         uri: str,
-        params: MutableMapping[str, str | List[str]],
+        params: MutableMapping[str, str | list[str]],
         method: str = "GET",
     ) -> Any:
         """Handle a request to the HERE Transit API.
+
         Make a request against the HERE Transit API and handles the response.
         Args:
             uri: The request URI on the HERE Transit API to call.
@@ -73,15 +78,18 @@ class HERETransitApi:
             data: RAW HTTP request data to send with the request.
             json_data: Dictionary of data to send as JSON with the request.
             params: Mapping of request parameters to send with the request.
+
         Returns:
             The response from the API. In case the response is a JSON response,
             the method will return a decoded JSON response as a Python
             dictionary. In other cases, it will return the RAW text response.
+
         Raises:
             HERETransitConnectionError: An error occurred while communicating
                 with the HERE Transit API (connection issues).
             HERETransitError: An error occurred while processing the
                 response from the HERE Transit API (invalid data).
+
         """
         url = URL.build(scheme=SCHEME, host=API_HOST, path=API_VERSION) / uri
 
@@ -122,13 +130,9 @@ class HERETransitApi:
             response.close()
 
             if response.status == 401:
-                raise HERETransitUnauthorizedError(
-                    json.loads(decoded_contents)["error_description"]
-                )
+                raise HERETransitUnauthorizedError(json.loads(decoded_contents)["error_description"])
             if response.status == 429:
-                raise HERETransitTooManyRequestsError(
-                    json.loads(decoded_contents)["error_description"]
-                )
+                raise HERETransitTooManyRequestsError(json.loads(decoded_contents)["error_description"])
 
             raise HERETransitError(response.status, json.loads(decoded_contents))
 
@@ -144,18 +148,19 @@ class HERETransitApi:
         units: UnitSystem = UnitSystem.METRIC,
         lang: str = "en-US",
         changes: int | None = None,
-        included_modes: List[TransitMode] | None = None,
-        excluded_modes: List[TransitMode] | None = None,
-        return_values: List[Return] | None = None,
+        included_modes: list[TransitMode] | None = None,
+        excluded_modes: list[TransitMode] | None = None,
+        return_values: list[Return] | None = None,
         departure_time: datetime | None = None,
         arrival_time: datetime | None = None,
     ) -> Any:
         """Get the route.
+
         Args:
             origin: Latitude and longitude of the origin.
             destination: Latitude and longitude of the destination.
-            pedestrianSpeed: Walking speed in meters per second.
-            pedestrianMaxDistance: Maximum allowed walking distance in meters.
+            pedestrian_peed: Walking speed in meters per second.
+            pedestrian_max_distance: Maximum allowed walking distance in meters.
             alternatives: Number of alternative routes to return.
             units: Unitsystem to use.
             lang: IETF BCP 47 compatible language identifier.
@@ -165,19 +170,22 @@ class HERETransitApi:
             return_values: HERE Transit API return values to request.
             departure_time: Departure time.
             arrival_time: Arrival time.
+
         Returns:
             The response from the API.
+
         Raises:
             HERETransitConnectionError: An error occurred while communicating
                 with the HERE Transit API (connection issues).
             HERETransitError: An error occurred while processing the
                 response from the HERE Transit API (invalid data).
+
         """
         if included_modes is not None and excluded_modes is not None:
             if len(included_modes) > 0 and len(excluded_modes) > 0:
                 raise ValueError("Cannot include and exclude at the same time")
 
-        params: MutableMapping[str, str | List[str]] = {  # type: ignore
+        params: MutableMapping[str, str | list[str]] = {  # type: ignore
             "origin": f"{origin.latitude},{origin.longitude}",
             "destination": f"{destination.latitude},{destination.longitude}",
             "pedestrianSpeed": str(pedestrian_peed),
@@ -212,20 +220,24 @@ class HERETransitApi:
 
     async def __aenter__(self) -> HERETransitApi:
         """Async enter.
+
         Returns:
             The HERETransitApi object.
+
         """
         return self
 
     async def __aexit__(self, *_exc_info) -> None:
         """Async exit.
+
         Args:
             _exc_info: Exec type.
+
         """
         await self.close()
 
 
-def raise_error_from_notices(notices: List[Dict[str, str]]) -> None:
+def raise_error_from_notices(notices: list[dict[str, str]]) -> None:
     """Raise the correct error for the contained notices."""
     errors = {notice["code"]: notice["title"] for notice in notices}
 
