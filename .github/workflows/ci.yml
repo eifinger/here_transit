@@ -28,13 +28,13 @@ jobs:
         if: steps.setup-rye.outputs.cache-hit != 'true'
         run: |
           rye sync
-      - name: Cache pre-commit
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9  # v4.0.2
+      - name: Cache prek
+        uses: actions/cache@v4
         with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-|${{ matrix.python-version }}|${{ hashFiles('.pre-commit-config.yaml') }}
+          path: ~/.cache/prek
+          key: prek-|${{ matrix.python-version }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - name: Lint
         run: |
-          rye run pre-commit run --all-files
+          rye run prek run --all-files
       - name: Lint GitHub Actions
         uses: eifinger/actionlint-action@v1
