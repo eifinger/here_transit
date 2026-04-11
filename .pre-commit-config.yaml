@@ -41,24 +41,24 @@ repos:
               tests/fixtures/transit_route_response.json|
               docs/openapi_v8.yaml
           )$
-        entry: rye run codespell --ignore-words=.codespell
+        entry: uv run codespell --ignore-words=.codespell
       - id: mypy
         name: 🆎 Static type checking using mypy
         language: system
         types: [python]
-        entry: rye run mypy
+        entry: uv run mypy
         require_serial: true
       - id: pytest
         name: 🧪 Running tests and test coverage with pytest
         language: system
         types: [python]
-        entry: rye run pytest
+        entry: uv run pytest
         pass_filenames: false
       - id: yamllint
         name: 🎗  Check YAML files with yamllint
         language: system
         types: [yaml]
-        entry: rye run yamllint
+        entry: uv run yamllint
         exclude: |
           (?x)^(
               docs/openapi_v8.yaml
