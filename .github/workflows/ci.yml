@@ -17,24 +17,16 @@ jobs:
         python-version: ["3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
-      - uses: eifinger/setup-rye@v3
-        id: setup-rye
+      - uses: astral-sh/setup-uv@e06108dd0aef18192324c70427afc47652e63a82  # v8.0.0
         with:
-          enable-cache: true
-          cache-prefix: ${{ matrix.python-version }}
-      - name: Pin python-version ${{ matrix.python-version }}
-        run: rye pin ${{ matrix.python-version }}
-      - name: Install dependencies
-        if: steps.setup-rye.outputs.cache-hit != 'true'
-        run: |
-          rye sync
+          python-version: ${{ matrix.python-version }}
       - name: Cache prek
         uses: actions/cache@v4
         with:
           path: ~/.cache/prek
-          key: prek-|${{ matrix.python-version }}|${{ hashFiles('.pre-commit-config.yaml') }}
+          key: prek-${{ hashFiles('.pre-commit-config.yaml') }}
       - name: Lint
         run: |
-          rye run prek run --all-files
+          uv run prek run --all-files
       - name: Lint GitHub Actions
         uses: eifinger/actionlint-action@v1
