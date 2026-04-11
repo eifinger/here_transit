@@ -59,10 +59,7 @@ class HERETransitApi:
         self._close_session = False
 
         self.request_timeout = request_timeout
-        self.user_agent = user_agent
-
-        if user_agent is None:
-            self.user_agent = f"here_transit/{LIB_VERSION}"
+        self.user_agent: str = user_agent or f"here_transit/{LIB_VERSION}"
 
     async def request(
         self,
@@ -94,7 +91,7 @@ class HERETransitApi:
         """
         url = URL.build(scheme=SCHEME, host=API_HOST, path=API_VERSION) / uri
 
-        headers = {
+        headers: dict[str, str] = {
             "User-Agent": self.user_agent,
             "Accept": "application/json",
             "DNT": "1",
